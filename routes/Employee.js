@@ -109,8 +109,17 @@ employeeRoutes.route("/employees/:eid")
                 })
             }
 
+            // Validating the gender value
+            const allowedGenders = ["Male", "Female", "Other"]
+            if (!allowedGenders.includes(req.body.gender)) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Please enter from the following genders: \"Male\", \"Female\", \"Other\""
+                })
+            }
+
             const updatedEmployee = await EmployeeModel.findByIdAndUpdate(req.params.eid, req.body)
-            res.status(200).json(updatedEmployee.first_name + " " + updatedEmployee.last_name + " information has been updated")
+            res.status(200).json("Employee with ID: " + updatedEmployee._id + " information has been updated")
         } catch (error) {
             res.status(500).json({
                 status: false,
