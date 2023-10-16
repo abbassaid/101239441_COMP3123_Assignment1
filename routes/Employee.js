@@ -55,7 +55,7 @@ employeeRoutes.route("/employees")
             if (existingEmployee) {
                 return res.status(400).json({
                     status: false,
-                    message: "An employee already has the username to their account"
+                    message: "An employee already has the email associated to their account"
                 })
             }
 
