@@ -5,6 +5,7 @@ We are going to use ReactJS as our front end and MongoDB for our backend. Make s
 specific project. Make sure you install all the dependencies needed.
 
 Run the code below to run the docker-compose.yml file
+
 docker-compose -p assignment2-comp3123 -f docker-compose.yml up -d
 
 API endpoints will be using port 8585 and the web application (front end) will use port 80. Make sure these 
