@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: abbassaid
+      MONGO_INITDB_ROOT_PASSWORD: GeorgeBrown123
+      MONGO_INITDB_DATABASE: comp3123_assigment1
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8585:8585"
+    depends_on:
+      - mongodb
+    environment:
+      DB_CONNECTION_STRING: "mongodb+srv://abbassaid:GeorgeBrown123@cluster0.e8qefyb.mongodb.net/comp3123_assigment1?retryWrites=true&w=majority"
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      -  "80:80"
+    depends_on:
+      - backend
