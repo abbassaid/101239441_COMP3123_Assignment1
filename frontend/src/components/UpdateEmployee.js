@@ -24,10 +24,10 @@ const UpdateEmployee = () => {
           setGender(data.gender);
           setSalary(data.salary)
         } else {
-          console.error('Error updating employee');
+          console.error('Error updating specific employee');
         }
       } catch (error) {
-        console.error('Error updating employee:', error);
+        console.error('Error updating specific employee:', error);
       }
     };
 
